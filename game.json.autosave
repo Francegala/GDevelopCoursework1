@@ -175,6 +175,51 @@
         "metadata": "",
         "name": "Laser-Shot.mp3",
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "background.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "background.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "player1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "player1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "enemy1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "enemy1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "laserPlayer.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "laserPlayer.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "shield1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "shield1.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -296,7 +341,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "background-purple.png",
+                      "image": "background.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -335,7 +380,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "playerShip1_blue.png",
+                      "image": "player1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -380,7 +425,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "enemyRed3.png",
+                      "image": "enemy1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -425,52 +470,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "enemyRed3.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "EnemyBullet",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "behaviors": [
-            {
-              "name": "DestroyOutside",
-              "type": "DestroyOutsideBehavior::DestroyOutside",
-              "extraBorder": 0
-            }
-          ],
-          "animations": [
-            {
-              "name": "",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "laserBlue07.png",
+                      "image": "enemy1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -515,7 +515,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "laserBlue07.png",
+                      "image": "laserPlayer.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -554,7 +554,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "shield-1.png",
+                      "image": "shield1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2097,17 +2097,6 @@
               },
               "parameters": [
                 "Enemy",
-                ""
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "Delete"
-              },
-              "parameters": [
-                "EnemyBullet",
                 ""
               ],
               "subInstructions": []
