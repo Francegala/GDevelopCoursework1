@@ -238,6 +238,24 @@
         "name": "laserRed08.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "meteor.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "meteor.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "laserEnemy.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "laserEnemy.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -488,7 +506,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "meteorBrown_med3.png",
+                      "image": "meteor.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -611,7 +629,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "laserRed08.png",
+                      "image": "laserEnemy.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -779,7 +797,7 @@
               },
               "parameters": [
                 "",
-                "1.05",
+                "2",
                 "\"Eshoot\""
               ],
               "subInstructions": []
@@ -793,6 +811,18 @@
                 "DevelopMode",
                 "!=",
                 "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "NbObjet"
+              },
+              "parameters": [
+                "EnemyToPlayer",
+                ">",
+                "0"
               ],
               "subInstructions": []
             }
