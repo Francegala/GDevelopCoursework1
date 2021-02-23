@@ -220,6 +220,24 @@
         "name": "shield1.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "meteorBrown_med3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "meteorBrown_med3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "laserRed08.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "laserRed08.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -470,7 +488,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "enemy1.png",
+                      "image": "meteorBrown_med3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -574,6 +592,45 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Enemy_Shoot",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "laserRed08.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -604,7 +661,7 @@
               },
               "parameters": [
                 "",
-                "2",
+                "1",
                 "\"EnemyCreation\""
               ],
               "subInstructions": []
@@ -663,7 +720,7 @@
               },
               "parameters": [
                 "",
-                "10",
+                "1",
                 "\"EnemyToPlayerCreation\""
               ],
               "subInstructions": []
@@ -704,6 +761,65 @@
               "parameters": [
                 "",
                 "\"EnemyToPlayerCreation\""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Timer"
+              },
+              "parameters": [
+                "",
+                "1.05",
+                "\"Eshoot\""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "DevelopMode",
+                "!=",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Enemy_Shoot",
+                "(EnemyToPlayer.X()+50)",
+                "(EnemyToPlayer.Y()+50)",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ResetTimer"
+              },
+              "parameters": [
+                "",
+                "\"Eshoot\""
               ],
               "subInstructions": []
             }
@@ -741,12 +857,34 @@
             {
               "type": {
                 "inverted": false,
+                "value": "AddForceAL"
+              },
+              "parameters": [
+                "Enemy_Shoot",
+                "90",
+                "900",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
                 "value": "AddForceVers"
               },
               "parameters": [
                 "EnemyToPlayer",
                 "Player",
-                "200",
+                "400",
                 ""
               ],
               "subInstructions": []
@@ -794,6 +932,98 @@
               "parameters": [
                 "Bullet",
                 ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "EnemyToPlayer",
+                "Bullet",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "EnemyToPlayer",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Bullet",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Enemy_Shoot",
+                "Bullet",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Enemy_Shoot",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Bullet",
+                "Bullet"
               ],
               "subInstructions": []
             }
@@ -838,64 +1068,7 @@
                 "value": "Delete"
               },
               "parameters": [
-                "Bullet",
-                ""
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "Delete"
-              },
-              "parameters": [
                 "Shield",
-                ""
-              ],
-              "subInstructions": []
-            }
-          ],
-          "events": []
-        },
-        {
-          "disabled": false,
-          "folded": false,
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": false,
-                "value": "CollisionNP"
-              },
-              "parameters": [
-                "EnemyToPlayer",
-                "Bullet",
-                "",
-                "",
-                ""
-              ],
-              "subInstructions": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "inverted": false,
-                "value": "Delete"
-              },
-              "parameters": [
-                "EnemyToPlayer",
-                ""
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "Delete"
-              },
-              "parameters": [
-                "Bullet",
                 ""
               ],
               "subInstructions": []
@@ -931,17 +1104,6 @@
               },
               "parameters": [
                 "EnemyToPlayer",
-                ""
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "Delete"
-              },
-              "parameters": [
-                "Bullet",
                 ""
               ],
               "subInstructions": []
@@ -954,6 +1116,52 @@
               "parameters": [
                 "Shield",
                 "Shield"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Enemy_Shoot",
+                "Shield",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Enemy_Shoot",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Shield",
+                ""
               ],
               "subInstructions": []
             }
@@ -1500,7 +1708,7 @@
               "parameters": [
                 "Bullet",
                 "270",
-                "400",
+                "50",
                 "1"
               ],
               "subInstructions": []
@@ -1667,6 +1875,89 @@
               },
               "parameters": [
                 "EnemyToPlayer",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Enemy_Shoot",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Immortal",
+                "!=",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Life",
+                "-",
+                "1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Player",
+                "Enemy_Shoot",
+                "",
+                "",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Enemy_Shoot",
                 ""
               ],
               "subInstructions": []
@@ -1762,7 +2053,7 @@
               "parameters": [
                 "Shield",
                 "=",
-                "2"
+                "5"
               ],
               "subInstructions": []
             }
@@ -2060,18 +2351,6 @@
             {
               "type": {
                 "inverted": false,
-                "value": "VarGlobal"
-              },
-              "parameters": [
-                "Life",
-                "<",
-                "1"
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
                 "value": "BuiltinCommonInstructions::Once"
               },
               "parameters": [],
@@ -2118,6 +2397,17 @@
                 "value": "Delete"
               },
               "parameters": [
+                "Player",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
                 "Shield",
                 ""
               ],
@@ -2143,7 +2433,7 @@
               "parameters": [
                 "Shield",
                 "=",
-                "2"
+                "5"
               ],
               "subInstructions": []
             },
@@ -2158,6 +2448,42 @@
                 "336",
                 "512",
                 ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pause",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Immortal",
+                "=",
+                "0"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "DevelopMode",
+                "=",
+                "0"
               ],
               "subInstructions": []
             }
@@ -2276,6 +2602,17 @@
               },
               "parameters": [
                 "EnemyToPlayer",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Delete"
+              },
+              "parameters": [
+                "Enemy_Shoot",
                 ""
               ],
               "subInstructions": []
