@@ -256,6 +256,20 @@
         "name": "laserEnemy.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "Space-Cannon.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Space-Cannon.mp3",
+        "userAdded": true
+      },
+      {
+        "file": "The-Creeping-Blob.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "The-Creeping-Blob.mp3",
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -1630,7 +1644,7 @@
                 "",
                 "Laser-Shot.mp3",
                 "no",
-                "5",
+                "3",
                 "1"
               ],
               "subInstructions": []
@@ -1716,7 +1730,7 @@
                 "",
                 "Laser-Shot.mp3",
                 "no",
-                "5",
+                "3",
                 "1"
               ],
               "subInstructions": []
@@ -1788,6 +1802,20 @@
                 "Life",
                 "-",
                 "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PlaySound"
+              },
+              "parameters": [
+                "",
+                "Space-Cannon.mp3",
+                "",
+                "10",
+                ""
               ],
               "subInstructions": []
             }
@@ -1871,6 +1899,20 @@
                 "Life",
                 "-",
                 "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PlaySound"
+              },
+              "parameters": [
+                "",
+                "Space-Cannon.mp3",
+                "",
+                "10\n",
+                ""
               ],
               "subInstructions": []
             }
@@ -1954,6 +1996,20 @@
                 "Life",
                 "-",
                 "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PlaySound"
+              },
+              "parameters": [
+                "",
+                "Space-Cannon.mp3",
+                "",
+                "10",
+                ""
               ],
               "subInstructions": []
             }
@@ -2035,7 +2091,7 @@
               "parameters": [
                 "Life",
                 "=",
-                "3"
+                "5"
               ],
               "subInstructions": []
             },
@@ -2084,6 +2140,20 @@
                 "Shield",
                 "=",
                 "5"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PlayMusic"
+              },
+              "parameters": [
+                "",
+                "The-Creeping-Blob.mp3",
+                "yes",
+                "10",
+                ""
               ],
               "subInstructions": []
             }
@@ -2451,7 +2521,7 @@
               "parameters": [
                 "Life",
                 "=",
-                "3"
+                "5"
               ],
               "subInstructions": []
             },
