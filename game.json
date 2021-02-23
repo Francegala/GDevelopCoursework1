@@ -270,6 +270,13 @@
         "metadata": "",
         "name": "The-Creeping-Blob.mp3",
         "userAdded": true
+      },
+      {
+        "file": "PowerRez9.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "PowerRez9.mp3",
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -1290,6 +1297,20 @@
                 "1"
               ],
               "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PlaySound"
+              },
+              "parameters": [
+                "",
+                "PowerRez9.mp3",
+                "",
+                "5",
+                ""
+              ],
+              "subInstructions": []
             }
           ],
           "events": []
@@ -1644,7 +1665,7 @@
                 "",
                 "Laser-Shot.mp3",
                 "no",
-                "3",
+                "2",
                 "1"
               ],
               "subInstructions": []
@@ -1730,7 +1751,7 @@
                 "",
                 "Laser-Shot.mp3",
                 "no",
-                "3",
+                "2",
                 "1"
               ],
               "subInstructions": []
