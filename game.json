@@ -555,9 +555,9 @@
       ],
       "layers": [
         {
-          "ambientLightColorB": 1702453580,
+          "ambientLightColorB": 1702453632,
           "ambientLightColorG": 6009760,
-          "ambientLightColorR": 150995060,
+          "ambientLightColorR": 150995056,
           "followBaseLayerCamera": false,
           "isLightingLayer": false,
           "name": "Background Image",
@@ -634,7 +634,7 @@
       "title": "",
       "v": 209,
       "uiSettings": {
-        "grid": true,
+        "grid": false,
         "gridB": 255,
         "gridG": 180,
         "gridHeight": 8,
@@ -642,7 +642,7 @@
         "gridOffsetY": 0,
         "gridR": 158,
         "gridWidth": 8,
-        "snap": true,
+        "snap": false,
         "windowMask": false,
         "zoomFactor": 1
       },
@@ -707,6 +707,22 @@
               "value": ""
             }
           ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 57,
+          "layer": "",
+          "locked": false,
+          "name": "GameOver",
+          "persistentUuid": "060b5ed9-d001-46b8-a64b-fe54503f0d79",
+          "width": 505,
+          "x": 211,
+          "y": 212,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -1000,6 +1016,30 @@
               ]
             }
           ]
+        },
+        {
+          "bold": true,
+          "italic": true,
+          "name": "GameOver",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [
+            {
+              "name": "GameOver",
+              "value": ""
+            }
+          ],
+          "behaviors": [],
+          "string": "",
+          "font": "",
+          "characterSize": 50,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 255
+          }
         }
       ],
       "events": [
@@ -2626,6 +2666,18 @@
                 ""
               ],
               "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "GameOver",
+                "=",
+                "\"Game Over!\nPress 'R' to restart\""
+              ],
+              "subInstructions": []
             }
           ],
           "events": []
@@ -2777,6 +2829,18 @@
               "parameters": [
                 "",
                 "1"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "GameOver",
+                "=",
+                "\"\""
               ],
               "subInstructions": []
             }
