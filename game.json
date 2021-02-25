@@ -1070,7 +1070,7 @@
               },
               "parameters": [
                 "",
-                "1",
+                "0.5",
                 "\"EnemyCreation\""
               ],
               "subInstructions": []
@@ -1188,7 +1188,7 @@
               },
               "parameters": [
                 "",
-                "2",
+                "1.1",
                 "\"Eshoot\""
               ],
               "subInstructions": []
