@@ -1,2 +1,2 @@
 # GDevelopCoursework1
-GSC3224 Computer Game Devemopment
+CSC3224 Computer Game Development Coursework 1
